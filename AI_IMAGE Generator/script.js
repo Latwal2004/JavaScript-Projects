@@ -8,7 +8,7 @@ const ratioSelect = document.querySelector("#ratio-select");
 const gridGallery = document.querySelector(".gallery-grid");
 const generateBtn = document.querySelector(".generate-btn");
 
-const API_KEY = "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"; // Hugging Face API Key
+const API_KEY = ""; // Hugging Face API Key
 
 // Example prompts
 const examplePrompts = [
