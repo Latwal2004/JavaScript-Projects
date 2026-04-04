@@ -10,7 +10,14 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <aside class="sidebar">
+    <!-- Navbar -->
+        <nav class="site-nav">
+      <button class="sidebar-toggle">
+        <span class="material-symbols-rounded">menu</span>
+      </button>
+    </nav>
+    <div class="container">
+    <aside class="sidebar collapsed">
         <header class="sidebar-header">
             <!-- sidebar header -->
             <img src="/sidebar_Menu/logo.png" alt="codingJs" class="header-logo">
@@ -29,7 +36,7 @@
              <!-- Menu list -->
              <ul class="menu-list">
                 <li class="menu-item">
-                    <a href="#" class="menu-link">
+                    <a href="#" class="menu-link active">
                           <span class="material-symbols-rounded">dashboard</span>
                             <span class="menu-label">Dashboard</span>
                     </a>
@@ -75,7 +82,7 @@
         <div class="sidebar-footer">
             <button class="theme-toggle">
                 <div class="theme-label">
-                      <span class="material-symbols-rounded">dark_mode</span>
+                      <span class=" theme-icon material-symbols-rounded">dark_mode</span>
                         <span class="theme-text">Dark Mode</span>
                 </div>
                 <div class="theme-toggle-track">
@@ -85,7 +92,11 @@
         </div>
 
     </aside>
-
+    <div class="main-content">
+        <h1 class="page-title">Dashboard Overview</h1>
+        <p class="card">Welcome to your dashboard! Use the menu to navigate, toggle the sidebar, or switch between light and dark themes to personalize your experience.</p>
+      </div>
+     </div>
     <script src="script.js"></script>
 </body>
 </html>

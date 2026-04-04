@@ -18,7 +18,19 @@
   --color-hover-secondary: #e2e2fb;
   --color-shadow: rgba(0, 0, 0, 0.05);
 }
+body.dark-theme {
+  /* Dark theme colors */
+  --color-text-primary: #F1F5F9;
+  --color-text-placeholder: #A6B7D2;
+  --color-bg-primary: #111827;
+  --color-bg-secondary: #3D4859;
+  --color-bg-sidebar: #1f2937;
+  --color-border-hr: #3B475C;
+  --color-hover-secondary: #48566a;
+  --color-shadow: rgba(0, 0, 0, 0.3);
+}
 body{
+    min-height: 100vh;
     background: var(--color-bg-primary);
 }
 
@@ -58,6 +70,8 @@ border-bottom: 1px solid var(--color-border-hr);
     opacity: 0;
     pointer-events: none;
 }
+
+.site-nav .sidebar-toggle,
 .sidebar-header .sidebar-toggle{
 height: 40px;
 width: 40px;
@@ -78,8 +92,9 @@ transition: 0.4s ease;
     width: 50px;
     transform: translateX(-2px);
 }
+.site-nav .sidebar-toggle:hover,
 .sidebar-header .sidebar-toggle:hover{
-    background: c=var(--color-hover-secondary);
+    background: var(--color-hover-secondary);
 }
 
 .sidebar-header .sidebar-toggle span{
@@ -95,13 +110,13 @@ transition: 0.4s ease;
 }
 
 .sidebar .sidebar-content{
-    flex-shrink: 1;
+    flex: 1;
     padding: 20px 18px;
     overflow: hidden auto;
     scrollbar-width: thin;
     scrollbar-color: var(--color-text-placeholder) transparent;
 }
- .sidebar.collapsed.sidebar-content{
+ .sidebar.collapsed .sidebar-content{
       scrollbar-width: none;
  }
 .sidebar-content .search-form{
@@ -115,6 +130,9 @@ transition: 0.4s ease;
     background: var(--color-bg-secondary);
     transition: 0.4s ease;
 
+}
+.sidebar .sidebar.collapsed .sidebar-content .search-form:hover{
+cursor:pointer;
 }
 
 .sidebar-content .search-form:focus-within{
@@ -161,7 +179,7 @@ background-color: var(--color-hover-secondary);
     opacity: 0;
     pointer-events: none;
 }
-.menu-list .menu-link:is(:hover, .action){
+.menu-list .menu-link:is(:hover, .active){
     color: #fff;
     background:var(--color-hover-primary);
 
@@ -181,6 +199,7 @@ background-color: var(--color-hover-secondary);
     display: flex;
     align-items: center;
     border-radius: 8px;
+    color: var(--color-text-primary);
     background: var(--color-bg-secondary);
     transition: 0.3s ease;
 }
@@ -212,6 +231,10 @@ margin-left: auto;
 background: #c3d1ec;
 transition: opacity 0.4s 0.2s ease ,background-color 0.3s ease;
 }
+
+body.dark-theme .theme-toggle .theme-toggle-track{
+    background: #695CFE;
+}
 .theme-toggle-track .theme-toggle-indicator{
     position: absolute;
     top: 3px;
@@ -221,4 +244,79 @@ transition: opacity 0.4s 0.2s ease ,background-color 0.3s ease;
     background: #fff;
     border-radius: 50%;
      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+     transition: transform 0.3s ease;
+}
+
+body.dark-theme .theme-toggle-track .theme-toggle-indicator{
+    transform: translateX(24px);
+}
+
+.site-nav {
+  top: 0;
+  display: none;
+  padding: 15px 20px;
+  position: sticky;
+  background: var(--color-bg-primary);
+  border-bottom: 1px solid var(--color-border-hr);
+}
+.site-nav .sidebar-toggle {
+  position: unset;
+}
+.container {
+  display: flex;
+}
+.container .main-content {
+  flex: 1;
+  padding: 30px;
+  color: var(--color-text-primary);
+}
+.main-content .page-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.main-content .card {
+  border-radius: 8px;
+  padding: 20px;
+  background-color: var(--color-bg-sidebar);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+/* Responsive media query code for small screens */
+@media (max-width: 768px) {
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    opacity: 0;
+    pointer-events: none;
+    background: rgba(0, 0, 0, 0.6);
+    transition: 0.4s ease;
+  }
+  body:has(.sidebar:not(.collapsed))::before {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  body:has(.sidebar:not(.collapsed)) {
+    overflow: hidden;
+  }
+  .site-nav {
+    display: block;
+  }
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 20;
+    width: 270px;
+    transition: left 0.4s ease;
+  }
+  .sidebar.collapsed {
+    left: -270px;
+    width: 270px;
+  }
+  .container .main-content {
+    padding: 30px 20px;
+  }
 }
