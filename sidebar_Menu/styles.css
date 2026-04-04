@@ -31,10 +31,13 @@ body{
     flex-direction: column;
     flex-shrink: 0;
     background: var(--color-bg-sidebar);
-    border-right: 1ps solid var(--color-border-hr);
+    border-right: 1px solid var(--color-border-hr);
     box-shadow: 0 3px 9px var(--color-shadow);
+    transition:width  0.4s ease;
 }
-
+.sidebar.collapsed{
+width: 90px;
+}
 .sidebar .sidebar-header{
 display: flex;
 padding: 20px 18px;
@@ -48,13 +51,19 @@ border-bottom: 1px solid var(--color-border-hr);
     object-fit: cover;
     display: block;
     border-radius: 50%;
+    transition: opacity 0.4s ease;
 }
 
-
+.sidebar.collapsed .sidebar-header .header-logo{
+    opacity: 0;
+    pointer-events: none;
+}
 .sidebar-header .sidebar-toggle{
 height: 40px;
 width: 40px;
 border: none;
+position: absolute;
+right: 18px;
 border-radius: 8px;
 display: flex;
 cursor: pointer;
@@ -64,6 +73,11 @@ color: var(--color-text-primary);
 background: var(--color-bg-secondary);
 transition: 0.4s ease;
 }
+.sidebar.collapsed .sidebar-header .sidebar-toggle{
+    height: 48px;
+    width: 50px;
+    transform: translateX(-2px);
+}
 .sidebar-header .sidebar-toggle:hover{
     background: c=var(--color-hover-secondary);
 }
@@ -71,6 +85,15 @@ transition: 0.4s ease;
 .sidebar-header .sidebar-toggle span{
     font-size: 1.75rem;
 }
+
+.sidebar.collapsed .sidebar-toggle span{
+    font-size: 1.75rem;
+    transition: transform 0.4s ease;
+}
+.sidebar.collapsed .sidebar-toggle span{
+    transform: rotate(180deg);
+}
+
 .sidebar .sidebar-content{
     flex-shrink: 1;
     padding: 20px 18px;
@@ -78,7 +101,9 @@ transition: 0.4s ease;
     scrollbar-width: thin;
     scrollbar-color: var(--color-text-placeholder) transparent;
 }
-
+ .sidebar.collapsed.sidebar-content{
+      scrollbar-width: none;
+ }
 .sidebar-content .search-form{
     min-height: 48px;
     border-radius: 8px;
@@ -129,6 +154,13 @@ background-color: var(--color-hover-secondary);
     color: var(--color-text-primary);
     transition: 0.4s ease;
 }
+.menu-link .menu-label{
+    transition: 0.3 ease;
+}
+.sidebar.collapsed .menu-link .menu-label{
+    opacity: 0;
+    pointer-events: none;
+}
 .menu-list .menu-link:is(:hover, .action){
     color: #fff;
     background:var(--color-hover-primary);
@@ -164,8 +196,13 @@ background-color: var(--color-hover-secondary);
 
 .theme-toggle .theme-label .theme-text{
     font-size: 1rem;
+    transition: opacity 0.4s 0.2s ease;
 }
-
+.sidebar.collapsed .theme-toggle :where(.theme-text, .theme-toggle-track){
+    width: 0;
+    opacity: 0;
+    transition: all 0.2s ease;
+}
 .theme-toggle .theme-toggle-track{
 height: 24px;
 width: 48px;
@@ -173,7 +210,7 @@ position: relative;
 border-radius: 999px;
 margin-left: auto;
 background: #c3d1ec;
-
+transition: opacity 0.4s 0.2s ease ,background-color 0.3s ease;
 }
 .theme-toggle-track .theme-toggle-indicator{
     position: absolute;
