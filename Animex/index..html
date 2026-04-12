@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Anime Explorer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <div class="logo">ANIME<span>.</span>EX</div>
+    <p class="tagline">Live data from Kitsu API — browse, search, discover</p>
+    <div id="stats"></div>
+  </header>
+
+  <div class="controls">
+    <input type="text" id="search" placeholder="Search anime titles..." oninput="filterAnime()" />
+    <select id="sort" onchange="filterAnime()">
+      <option value="rating">Sort: Top Rated</option>
+      <option value="popularity">Sort: Most Popular</option>
+      <option value="ep">Sort: Most Episodes</option>
+      <option value="title">Sort: Title A–Z</option>
+    </select>
+  </div>
+
+  <div class="grid-wrap">
+    <div class="grid" id="grid">
+      <div class="msg"><div class="spinner"></div>Fetching anime from Kitsu API...</div>
+    </div>
+  </div>
+
+  <div class="modal-bg" id="modal-bg" onclick="closeModal(event)">
+    <div class="modal" id="modal"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
