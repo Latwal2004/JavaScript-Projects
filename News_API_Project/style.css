@@ -7,6 +7,8 @@ body{
     position: relative;
     scroll-behavior: smooth;
 }
+
+/* //headers stylings */
 header {
     background: #1e293b;
     color: white;
@@ -16,6 +18,7 @@ header {
     align-items: center;
     justify-content: center;
 }
+/* searc box input */
 .search-box input{
     padding: 10px;
     border-radius: 10px;
@@ -30,14 +33,15 @@ header {
     cursor: pointer;
 }
 
+/* CATEGORIES */
 .categories{
     display: flex;
     justify-content: center;
     gap: 10px;
     padding: 15px;
 }
+/* cat button */
 .cat-btn{
-
     padding: 8px 15px;
     border: none;
     background: #e2e8f0;
@@ -61,24 +65,16 @@ header {
 .blog-card{
     display: flex;
     flex-direction: column;
-    background: linear-gradient(135deg, #ffffff, #f8fafc);
-    border-radius: 14px;
+    background: white;
+    border-radius: 10px;
     overflow: hidden;
     cursor: pointer;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
-    position: relative;
-}
-.blog-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.05), transparent);
-    pointer-events: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: 0.3s;
 }
 .blog-card:hover{
-    transform: translateY(-8px) scale(1.01);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 /* image */
 .blog-card img{
@@ -94,10 +90,11 @@ header {
     padding: 10px;
     color: #0f172a;
 }
+/* description */
 .blog-card p{
     font-size: 14px;
-    padding: 0 12px 15px;
-    color: #475569;
+    padding: 0 10px 15px;
+    color: #555;
     display: block;
     line-height: 1.4;
 }
