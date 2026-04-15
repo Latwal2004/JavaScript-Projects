@@ -9,18 +9,22 @@
 </head>
 
 <body>
-
-    <nav>
-        <div class="navbar obj-width">
-            <a href="index.html" class="logo">News</a>
-            <div class="search-container">
-                <input type="text" placeholder="search news here...." id="search-input">
-                <button id="searchBtn">Search</button>
-            </div>
-        </div>
-    </nav>
-
-    <main id="blog-container" class="obj-width">
+<header>
+    <h1>NewsHub 📰</h1>
+    <div class="search-box">
+         <input type="text" id="search-input" placeholder="Search news...">
+            <button id="searchBtn">Search</button>
+    </div>
+</header>
+   
+<!-- categories -->
+<div class="categories">
+    <button class="cat-btn" data-category="business">Business</button>
+    <button class="cat-btn" data-category="technology">Technology</button>
+    <button class="cat-btn" data-category="sports">Sports</button>
+    <button class="cat-btn" data-category="health">Health</button>
+</div>
+    <main id="blog-container">
 
         <!-- hard coded just to keep an idea how iour card UI Looks -->
         <!-- <div class="blog-card">

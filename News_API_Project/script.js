@@ -94,7 +94,7 @@ validArticles.forEach((article) =>{
 //description ie.para in card
     const description =  document.createElement("p");
     const articleDesc = article.description || "No Description Available";
-    const truncatedDesc = articleDesc.length > 120 ? articleDesc.slice(0,120) + "...."
+    const truncatedDesc = articleDesc.length > 200 ? articleDesc.slice(0,200) + "...."
     :articleDesc;
     description.textContent = truncatedDesc;
     //appending the img heading and description to blog card div 
