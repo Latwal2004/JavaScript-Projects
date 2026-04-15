@@ -74,15 +74,15 @@ header { padding: 2rem; border-bottom: 1px solid var(--border); }
 .card-rank {
   position: absolute; top: 6px; left: 6px;
   background: rgba(0,0,0,0.7); color: var(--accent);
-  font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 100px;
+  font-size: 20px; font-weight: 700; padding: 2px 8px; border-radius: 100px;
 }
 
 .card-body { padding: 10px 12px; }
-.card-title { font-size: 13px; font-weight: 700; line-height: 1.4; margin-bottom: 6px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.card-title { font-size: 15px; font-weight: 700; line-height: 1.4; margin-bottom: 6px;  overflow: hidden; }
 .card-users { font-size: 11px; color: var(--muted); margin-top: 5px; }
 
 /* BADGES */
-.badges { display: flex; gap: 4px; flex-wrap: wrap; }
+.badges { display: flex; gap: 6px; flex-wrap: wrap; }
 .badge { font-size: 10px; font-weight: 600; padding: 2px 7px; border-radius: 100px; }
 .badge-rating { background: rgba(232,255,71,0.12); color: var(--accent); }
 .badge-ep     { background: rgba(100,200,160,0.12); color: #64c8a0; }
