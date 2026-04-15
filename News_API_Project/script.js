@@ -21,7 +21,44 @@ async function fetchRandomNews()
         return [];
     }
 }
+//article filter 
+searchBtn.addEventListener("click",async () =>{
+    const query = searchField.value.trim();
+    if(query !== "")  
+        {
+            try{
+                const articles = await fetchNewsQuery(query);
+                displayBlogs(articles);
+            }
+            catch(error)
+            {
+                console.log("Error fetching news by query",error);
+            }
+        }
+})
 
+//triggering the search button on enter
+searchField.addEventListener("keydown",(e) =>{
+    if(e.key  ===  'Enter'){
+        searchBtn.click();
+    }
+});
+async function fetchNewsQuery(query){
+    try{
+        const apiUrl = `https://newsapi.org/v2/everything?q=${query}&pageSize=20&apiKey=${apiKey}`;
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+     if (data.status !== "ok") {
+            console.error("API Error:", data);
+            return [];
+        }
+       return data.articles || []; //  always return array
+    }
+    catch(error){
+        console.error("Error in fetching random news",error)
+        return [];
+    }
+}
 
 function displayBlogs(articles){
 blogContainer.innerHTML = "";
