@@ -113,6 +113,17 @@ gap: 20px;
     cursor: pointer;
     display: none;
 }
+.search-result.loading {
+    background: #f0f0f0;
+    height: 250px;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
 @media(max-width:768px){
     .search-results{
         padding: 20px;
