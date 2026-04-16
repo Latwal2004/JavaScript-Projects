@@ -4,6 +4,7 @@ const formElement = document.querySelector("form");
 const inputElement = document.getElementById('search-input');
 const searchResults = document.querySelector('.search-results');
 const showMoreBtn = document.getElementById('showMoreBtn');
+const themeToggle = document.getElementById("themeToggle");
 
 let inputData = "";
 let page = 1;
@@ -61,4 +62,28 @@ formElement.addEventListener("submit",(event) =>{
 })
 showMoreBtn.addEventListener(('click'),() =>{
     searchImages()
+})
+
+
+// darktheme
+
+if(localStorage.getItem("theme") === "dark"){
+    document.documentElement.classList.add("dark");
+    themeToggle.textContent = "☀️ Light Mode";
+
+}
+
+themeToggle.addEventListener("click" ,() =>{
+    document.documentElement.classList.toggle("dark");
+
+    if(document.documentElement.classList.contains("dark")){
+        localStorage.setItem("theme", "dark");
+         themeToggle.textContent = "☀️ Light Mode";
+    }
+    else{
+        localStorage.setItem("theme", "light");
+        themeToggle.textContent = "🌙 Dark Mode";
+    }
+
+
 })
